@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janani RS | Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      padding: 15px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    header h1 { color: #38bdf8; font-size: 22px; }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    nav a:hover { color: #38bdf8; }
+
+    section { padding: 100px 60px; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-content { flex: 1; }
+
+    .hero h2 { font-size: 48px; margin-bottom: 10px; }
+    .hero span { color: #38bdf8; }
+
+    .typing {
+      color: #38bdf8;
+      border-right: 2px solid #38bdf8;
+      padding-right: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin-top: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 26px;
+      background: #38bdf8;
+      color: #020617;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .btn:hover { background: #0ea5e9; }
+
+    .hero-visual {
+      flex: 1;
+      position: relative;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-img {
+      position: relative;
+      z-index: 2;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #38bdf8;
+      box-shadow: 0 0 40px rgba(56,189,248,0.6);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .circle {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #38bdf8, transparent);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .circle.small {
+      width: 140px;
+      height: 140px;
+      top: 120px;
+      left: 160px;
+      animation-duration: 4s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+      100% { transform: translateY(0); }
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #38bdf8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #020617;
+      padding: 25px;
+      border-radius: 16px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(56,189,248,0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #020617;
+      margin-top: 40px;
+    }
+
+    .links a {
+      margin: 0 10px;
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media(max-width: 768px) {
+      header { padding: 15px 30px; }
+      section { padding: 80px 30px; }
+      .hero { flex-direction: column; text-align: center; }
+      .hero h2 { font-size: 36px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Janani RS</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+    <a href="assets/Resume_Janani_RS.pdf" target="_blank">Resume</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h2>Hello, I'm <span>Janani RS</span></h2>
+    <h3><span class="typing"></span></h3>
+    <p>
+      I am an Artificial Intelligence and Data Science student with a strong interest in data-driven problem solving,
+      intuitive user experience design, and intelligent systems. I enjoy building practical solutions that combine
+      analytics, machine learning, and clean UI design.
+    </p>
+    <a href="assets/Resume_Janani_RS.pdf" target="_blank" class="btn">Download Resume</a>
+  </div>
+
+  <div class="hero-visual">
+    <img src="assets/janani-photo.jpg" alt="Janani RS" class="profile-img">
+    <div class="circle"></div>
+    <div class="circle small"></div>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+  <p>
+    I am currently pursuing my Bachelor’s degree in Artificial Intelligence and Data Science, with a strong passion for transforming data into meaningful insights and intelligent solutions.
+  </p>
+  <p>
+    Alongside my technical skills, I have a keen interest in UI & UX design, where I focus on creating intuitive, user-friendly, and visually appealing interfaces.
+  </p>
+  <p>
+    Through internships and hands-on projects, I have gained practical exposure to real-world problem solving, teamwork, and continuous learning.
+  </p>
+</section>
+
+<section id="skills">
+  <h2 class="section-title">Skills</h2>
+  <div class="grid">
+    <div class="card">Python, Java</div>
+    <div class="card">Machine Learning & Data Analysis</div>
+    <div class="card">UI / UX Design (Figma, Wireframing)</div>
+    <div class="card">Web Development (HTML, CSS, JavaScript)</div>
+    <div class="card">Database & Data Visualization</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Voice Assistant</h3>
+      <p>An AI-based voice assistant capable of performing tasks using speech recognition and NLP techniques.</p>
+    </div>
+    <div class="card">
+      <h3>Restaurant Management System</h3>
+      <p>A system designed to manage orders, billing, and daily profit analysis.</p>
+    </div>
+    <div class="card">
+      <h3>Quantum Fiscal Assessment Portal</h3>
+      <p>A financial assessment platform that analyzes fiscal data for insights.</p>
+    </div>
+    <div class="card">
+      <h3>IoT Based Accident Detection</h3>
+      <p>An IoT-enabled solution that detects accidents and sends emergency alerts.</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2 class="section-title">Experience & Certifications</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Internships</h3>
+      <ul>
+        <li>Training Trains – Intern</li>
+        <li>ShenAI – AI Intern</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Certifications & Achievements</h3>
+      <ul>
+        <li>Coursera – UI & UX Design</li>
+        <li>2nd Prize – Theme Drawing (College Level)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <p>Email: <strong>mail2rsjanani@gmail.com</strong></p>
+  <p>Mobile: <strong>6381428087</strong></p>
+  <div class="links">
+    <a href="https://github.com/JananiRS-git" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/janani-rs-/" target="_blank">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Janani RS | Designed & Built by Me</p>
+</footer>
+
+<script>
+  const roles = ["Data Analyst", "UI & UX Designer", "ML Enthusiast", "AI & DS Student"];
+  let roleIndex = 0, charIndex = 0;
+  const typingElement = document.querySelector('.typing');
+
+  function typeEffect() {
+    if (charIndex < roles[roleIndex].length) {
+      typingElement.textContent += roles[roleIndex][charIndex++];
+      setTimeout(typeEffect, 120);
+    } else setTimeout(eraseEffect, 1500);
+  }
+
+  function eraseEffect() {
+    if (charIndex > 0) {
+      typingElement.textContent = roles[roleIndex].substring(0, --charIndex);
+      setTimeout(eraseEffect, 80);
+    } else {
+      roleIndex = (roleIndex + 1) % roles.length;
+      setTimeout(typeEffect, 500);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', typeEffect);
+</script>
+
+</body>
+</html>
