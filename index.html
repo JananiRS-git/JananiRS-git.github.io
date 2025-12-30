@@ -1,316 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Janani RS | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Janani R S | Portfolio</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 
-    html { scroll-behavior: smooth; }
+body{
+  font-family:'Poppins',sans-serif;
+  background:#0f172a;
+  color:#e5e7eb;
+}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      line-height: 1.6;
-    }
+/* HEADER */
+header{
+  position:fixed;
+  top:0;width:100%;
+  background:rgba(15,23,42,.95);
+  padding:15px 60px;
+  display:flex;
+  justify-content:space-between;
+  z-index:1000;
+}
+header h1{color:#38bdf8}
+nav a{
+  margin-left:22px;
+  color:#e5e7eb;
+  text-decoration:none;
+}
+nav a:hover{color:#38bdf8}
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(15, 23, 42, 0.95);
-      padding: 15px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-    }
+section{padding:100px 60px}
 
-    header h1 { color: #38bdf8; font-size: 22px; }
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  gap:40px;
+}
+.hero h2{font-size:48px}
+.hero span{color:#38bdf8}
+.typing{
+  color:#38bdf8;
+  border-right:2px solid #38bdf8;
+  padding-right:6px;
+}
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 26px;
+  background:#38bdf8;
+  color:#020617;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+}
 
-    nav a {
-      margin-left: 25px;
-      text-decoration: none;
-      color: #e5e7eb;
-      font-weight: 500;
-    }
+/* PROFILE */
+.hero-visual{flex:1;display:flex;justify-content:center;position:relative}
+.profile-img{
+  width:260px;height:260px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid #38bdf8;
+  box-shadow:0 0 40px rgba(56,189,248,.6);
+  animation:float 6s ease-in-out infinite;
+}
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-25px)}
+  100%{transform:translateY(0)}
+}
 
-    nav a:hover { color: #38bdf8; }
+/* COMMON */
+.section-title{
+  font-size:32px;
+  color:#38bdf8;
+  margin-bottom:40px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.card{
+  background:#020617;
+  padding:25px;
+  border-radius:16px;
+}
 
-    section { padding: 100px 60px; }
+/* PROJECTS */
+.project-card{
+  background:#020617;
+  border-radius:18px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:.3s;
+}
+.project-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 30px rgba(56,189,248,.25);
+}
+.project-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+.project-content{padding:20px}
 
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      gap: 40px;
-    }
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(2,6,23,.9);
+  z-index:2000;
+  justify-content:center;
+  align-items:center;
+}
+.modal-box{
+  background:#020617;
+  padding:30px;
+  border-radius:18px;
+  max-width:520px;
+  width:90%;
+}
+.modal-box img{
+  width:100%;
+  border-radius:12px;
+  margin:15px 0;
+}
+.close{
+  float:right;
+  font-size:26px;
+  cursor:pointer;
+  color:#38bdf8;
+}
 
-    .hero-content { flex: 1; }
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  background:#020617;
+}
 
-    .hero h2 { font-size: 48px; margin-bottom: 10px; }
-    .hero span { color: #38bdf8; }
+.links a{
+  margin:0 10px;
+  color:#38bdf8;
+  font-size:22px;
+}
 
-    .typing {
-      color: #38bdf8;
-      border-right: 2px solid #38bdf8;
-      padding-right: 6px;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin-top: 15px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 26px;
-      background: #38bdf8;
-      color: #020617;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .btn:hover { background: #0ea5e9; }
-
-    .hero-visual {
-      flex: 1;
-      position: relative;
-      height: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .profile-img {
-      position: relative;
-      z-index: 2;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid #38bdf8;
-      box-shadow: 0 0 40px rgba(56,189,248,0.6);
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .circle {
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #38bdf8, transparent);
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .circle.small {
-      width: 140px;
-      height: 140px;
-      top: 120px;
-      left: 160px;
-      animation-duration: 4s;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-25px); }
-      100% { transform: translateY(0); }
-    }
-
-    .section-title {
-      font-size: 32px;
-      margin-bottom: 30px;
-      color: #38bdf8;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: #020617;
-      padding: 25px;
-      border-radius: 16px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 15px 30px rgba(56,189,248,0.2);
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #020617;
-      margin-top: 40px;
-    }
-
-    .links a {
-      margin: 0 10px;
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    @media(max-width: 768px) {
-      header { padding: 15px 30px; }
-      section { padding: 80px 30px; }
-      .hero { flex-direction: column; text-align: center; }
-      .hero h2 { font-size: 36px; }
-    }
-  </style>
+@media(max-width:768px){
+  section{padding:80px 30px}
+  .hero{flex-direction:column;text-align:center}
+  .hero h2{font-size:36px}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>Janani RS</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
-    <a href="assets/Resume_Janani_RS.pdf" target="_blank">Resume</a>
-  </nav>
+<h1>Janani R S</h1>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#experience">Experience</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
+<!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-content">
-    <h2>Hello, I'm <span>Janani RS</span></h2>
-    <h3><span class="typing"></span></h3>
-    <p>
-      I am an Artificial Intelligence and Data Science student with a strong interest in data-driven problem solving,
-      intuitive user experience design, and intelligent systems. I enjoy building practical solutions that combine
-      analytics, machine learning, and clean UI design.
-    </p>
-    <a href="assets/Resume_Janani_RS.pdf" target="_blank" class="btn">Download Resume</a>
-  </div>
+<div>
+<h2>Hello, I'm <span>Janani R S</span></h2>
+<h3><span class="typing"></span></h3>
+<p>Artificial Intelligence & Data Science student passionate about data-driven solutions, UI/UX design, and intelligent systems.</p>
+<a href="assets/Resume_Janani_RS.pdf" class="btn" target="_blank">Download Resume</a>
+</div>
 
-  <div class="hero-visual">
-    <img src="assets/janani-photo.jpg" alt="Janani RS" class="profile-img">
-    <div class="circle"></div>
-    <div class="circle small"></div>
-  </div>
+<div class="hero-visual">
+<img src="assets/janani-photo.jpg" class="profile-img">
+</div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
-  <h2 class="section-title">About Me</h2>
-  <p>
-    I am currently pursuing my Bachelor’s degree in Artificial Intelligence and Data Science, with a strong passion for transforming data into meaningful insights and intelligent solutions.
-  </p>
-  <p>
-    Alongside my technical skills, I have a keen interest in UI & UX design, where I focus on creating intuitive, user-friendly, and visually appealing interfaces.
-  </p>
-  <p>
-    Through internships and hands-on projects, I have gained practical exposure to real-world problem solving, teamwork, and continuous learning.
-  </p>
+<h2 class="section-title">About Me</h2>
+<p>
+I’m Janani RS, an Artificial Intelligence & Data Science student with a strong interest in Data Analytics, Machine Learning, and UI/UX design.
+
+I enjoy building practical, user-centric solutions by combining data, design, and technology. 
+
+I have hands-on experience in developing end-to-end projects using Python, Machine Learning models, and data visualization tools. 
+
+My work focuses on solving real-world problems and AI-based analytics dashboards. 
+
+Alongside technical skills, I actively work on UI/UX design using Figma, ensuring that applications are not only functional but also intuitive and visually engaging. 
+
+I’m currently seeking opportunities to grow as a Data Analyst / AI & ML Engineer, where I can apply my skills, learn from real-world challenges, and contribute to impactful solutions.
+</p>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
-  <h2 class="section-title">Skills</h2>
-  <div class="grid">
-    <div class="card">Python, Java</div>
-    <div class="card">Machine Learning & Data Analysis</div>
-    <div class="card">UI / UX Design (Figma, Wireframing)</div>
-    <div class="card">Web Development (HTML, CSS, JavaScript)</div>
-    <div class="card">Database & Data Visualization</div>
-  </div>
+<h2 class="section-title">Skills</h2>
+<div class="grid">
+<div class="card">Python, Java</div>
+<div class="card">Machine Learning & Data Analysis</div>
+<div class="card">UI / UX Design (Figma)</div>
+<div class="card">Web Development</div>
+<div class="card">Database & Visualization</div>
+</div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
-  <h2 class="section-title">Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Voice Assistant</h3>
-      <p>An AI-based voice assistant capable of performing tasks using speech recognition and NLP techniques.</p>
-    </div>
-    <div class="card">
-      <h3>Restaurant Management System</h3>
-      <p>A system designed to manage orders, billing, and daily profit analysis.</p>
-    </div>
-    <div class="card">
-      <h3>Quantum Fiscal Assessment Portal</h3>
-      <p>A financial assessment platform that analyzes fiscal data for insights.</p>
-    </div>
-    <div class="card">
-      <h3>IoT Based Accident Detection</h3>
-      <p>An IoT-enabled solution that detects accidents and sends emergency alerts.</p>
-    </div>
-  </div>
+<h2 class="section-title">Projects</h2>
+<div class="grid">
+
+<div class="project-card" onclick="openModal('voice')">
+<img src="assets/project-voice.png">
+<div class="project-content">
+<h3>Voice Assistant</h3>
+<p>AThe Voice Assistant is an AI-based application designed to interact with users through voice commands and provide intelligent responses. It helps users perform everyday tasks hands-free by understanding speech input and converting it into meaningful actions.</p>
+</div>
+</div>
+
+<div class="project-card" onclick="openModal('restaurant')">
+<img src="assets/project-restaurant.png">
+<div class="project-content">
+<h3>Restaurant Management</h3>
+<p>The Restaurant Management System is a web-based application designed to automate and simplify restaurant operations such as order management, billing, and profit analysis. The system provides separate access for customers and managers, ensuring smooth and efficient workflow.</p>
+</div>
+</div>
+
+<div class="project-card" onclick="openModal('quantum')">
+<img src="assets/project-quantum.png">
+<div class="project-content">
+<h3>Quantum Fiscal Portal</h3>
+<p>Quantum Fiscal Portal is a data-driven financial analytics web application designed to analyze, visualize, and manage fiscal data efficiently. The portal helps users gain clear insights into financial performance through interactive dashboards, real-time analytics, and intelligent data processing.</p>
+</div>
+</div>
+
+<div class="project-card" onclick="openModal('iot')">
+<img src="assets/project-iot.png">
+<div class="project-content">
+<h3>IoT Accident Detection</h3>
+<p>The IoT Accident Detection System is a smart safety solution designed to automatically detect road accidents and provide immediate alerts to emergency contacts and authorities. By using sensors and IoT technology, the system minimizes response time and helps save lives.</p>
+</div>
+</div>
+
+</div>
 </section>
 
+<!-- EXPERIENCE -->
 <section id="experience">
-  <h2 class="section-title">Experience & Certifications</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Internships</h3>
-      <ul>
-        <li>Training Trains – Intern</li>
-        <li>ShenAI – AI Intern</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Certifications & Achievements</h3>
-      <ul>
-        <li>Coursera – UI & UX Design</li>
-        <li>2nd Prize – Theme Drawing (College Level)</li>
-      </ul>
-    </div>
-  </div>
+<h2 class="section-title">Experience & Certifications</h2>
+<div class="grid">
+<div class="card">
+<h3>Internships</h3>
+<p>Training Trains</p>
+<p>Ether Infotech</p>
+<p>AI & DS Workshop</p>
+<p>Deep Learning Workshop</p>
+</div>
+<div class="card">
+<h3>Achievements</h3>
+<p>UI/UX Certification</p>
+<p>Theme Drawing – 2nd Prize in Nandha Engineering College</p>
+<p>Joint Secretary of AI & DS Department</p>
+<p>Paper Presentation</p>
+</div>
+</div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
-  <h2 class="section-title">Contact</h2>
-  <p>Email: <strong>mail2rsjanani@gmail.com</strong></p>
-  <p>Mobile: <strong>6381428087</strong></p>
-  <div class="links">
-    <a href="https://github.com/JananiRS-git" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/janani-rs-/" target="_blank">LinkedIn</a>
-  </div>
+<h2 class="section-title">Contact</h2>
+<p>Email: <strong>mail2rsjanani@gmail.com</strong></p>
+<p>Mobile: <strong>6381428087</strong></p>
+<div class="links">
+<a href="mailto:mail2rsjanani@gmail.com"><i class="fas fa-envelope"></i></a>
+<a href="https://github.com/JananiRS-git" target="_blank"><i class="fab fa-github"></i></a>
+<a href="https://www.linkedin.com/in/janani-rs-/" target="_blank"><i class="fab fa-linkedin"></i></a>
+</div>
 </section>
 
 <footer>
-  <p>© 2025 Janani RS | Designed & Built by Me</p>
+<p>© 2025 Janani R S | Portfolio</p>
 </footer>
 
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-box">
+<span class="close" onclick="closeModal()">&times;</span>
+<h2 id="mTitle"></h2>
+<img id="mImg">
+<p id="mDesc"></p>
+</div>
+</div>
+
 <script>
-  const roles = ["Data Analyst", "UI & UX Designer", "ML Enthusiast", "AI & DS Student"];
-  let roleIndex = 0, charIndex = 0;
-  const typingElement = document.querySelector('.typing');
+const projects={
+voice:{
+t:"Voice Assistant",
+i:"assets/project-voice.png.png",
+d:"AI-based voice assistant using speech recognition and NLP."
+},
+restaurant:{
+t:"Restaurant Management System",
+i:"assets/project-restaurant.png.png",
+d:"System for managing orders, billing and profit analysis."
+},
+quantum:{
+t:"Quantum Fiscal Portal",
+i:"assets/project-quantum.png.png",
+d:"Financial assessment portal for fiscal analysis."
+},
+iot:{
+t:"IoT Accident Detection",
+i:"assets/project-iot.png.png",
+d:"IoT-based system that detects accidents and sends alerts."
+}
+};
 
-  function typeEffect() {
-    if (charIndex < roles[roleIndex].length) {
-      typingElement.textContent += roles[roleIndex][charIndex++];
-      setTimeout(typeEffect, 120);
-    } else setTimeout(eraseEffect, 1500);
-  }
+function openModal(key){
+document.getElementById("mTitle").innerText=projects[key].t;
+document.getElementById("mImg").src=projects[key].i;
+document.getElementById("mDesc").innerText=projects[key].d;
+document.getElementById("modal").style.display="flex";
+}
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
 
-  function eraseEffect() {
-    if (charIndex > 0) {
-      typingElement.textContent = roles[roleIndex].substring(0, --charIndex);
-      setTimeout(eraseEffect, 80);
-    } else {
-      roleIndex = (roleIndex + 1) % roles.length;
-      setTimeout(typeEffect, 500);
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', typeEffect);
+/* typing */
+const roles=["Data Analyst","Joint Secretary","UI/UX Designer","ML Enthusiast","AI & DS Student"];
+let i=0,j=0;
+const el=document.querySelector(".typing");
+function type(){
+ if(j<roles[i].length){
+  el.textContent+=roles[i][j++];
+  setTimeout(type,120);
+ }else setTimeout(erase,1500);
+}
+function erase(){
+ if(j>0){
+  el.textContent=roles[i].substring(0,--j);
+  setTimeout(erase,80);
+ }else{
+  i=(i+1)%roles.length;
+  setTimeout(type,500);
+ }
+}
+document.addEventListener("DOMContentLoaded",type);
 </script>
 
 </body>
