@@ -131,7 +131,10 @@ section{padding:100px 60px}
   border-radius:18px;
   max-width:520px;
   width:90%;
+  max-height:80vh;        /* IMPORTANT */
+  overflow-y:auto;        /* IMPORTANT */
 }
+
 .modal-box img{
   width:100%;
   border-radius:12px;
@@ -197,7 +200,7 @@ footer{
 <section id="about">
 <h2 class="section-title">About Me</h2>
 <p>
-I’m Janani RS, an Artificial Intelligence & Data Science student with a strong interest in Data Analytics, Machine Learning, and UI/UX design.
+I have a strong interest in Data Analytics, Machine Learning, and UI/UX design.
 
 I enjoy building practical, user-centric solutions by combining data, design, and technology. 
 
@@ -311,59 +314,81 @@ I’m currently seeking opportunities to grow as a Data Analyst / AI & ML Engine
 </div>
 
 <script>
-const projects={
-voice:{
-t:"Voice Assistant",
-i:"assets/project-voice.png.png",
-d:"AI-based voice assistant using speech recognition and NLP."
-},
-restaurant:{
-t:"Restaurant Management System",
-i:"assets/project-restaurant.png.png",
-d:"System for managing orders, billing and profit analysis."
-},
-quantum:{
-t:"Quantum Fiscal Portal",
-i:"assets/project-quantum.png.png",
-d:"Financial assessment portal for fiscal analysis."
-},
-iot:{
-t:"IoT Accident Detection",
-i:"assets/project-iot.png.png",
-d:"IoT-based system that detects accidents and sends alerts."
-}
+const projects = {
+  voice: {
+    title: "Voice Assistant",
+    img: "assets/project-voice.png",
+    desc: "The Voice Assistant is an AI-based application that interacts with users using speech recognition and Natural Language Processing (NLP). It allows users to perform tasks hands-free, improving accessibility and productivity.",
+    tech: ["Python", "Speech Recognition", "NLP", "AI"]
+  },
+
+  restaurant: {
+    title: "Restaurant Management System",
+    img: "assets/project-restaurant.png",
+    desc: "A web-based system that automates restaurant operations such as order management, billing, and profit analysis. It provides separate interfaces for customers and managers to ensure smooth workflow.",
+    tech: ["Python", "Flask", "HTML", "CSS", "SQLite"]
+  },
+
+  quantum: {
+    title: "Quantum Fiscal Portal",
+    img: "assets/project-quantum.png",
+    desc: "A financial analytics portal designed to analyze and visualize fiscal data through interactive dashboards. It helps users gain insights into financial performance using data-driven analysis.",
+    tech: ["Data Analytics", "Python", "Visualization", "Dashboard"]
+  },
+
+  iot: {
+    title: "IoT Accident Detection System",
+    img: "assets/project-iot.png",
+    desc: "A smart IoT-based safety solution that detects road accidents automatically using sensors and sends instant alerts to emergency contacts, reducing response time and saving lives.",
+    tech: ["IoT", "Sensors", "Embedded Systems", "Alerts"]
+  }
 };
 
-function openModal(key){
-document.getElementById("mTitle").innerText=projects[key].t;
-document.getElementById("mImg").src=projects[key].i;
-document.getElementById("mDesc").innerText=projects[key].d;
-document.getElementById("modal").style.display="flex";
-}
-function closeModal(){
-document.getElementById("modal").style.display="none";
+function openModal(key) {
+  const p = projects[key];
+  document.getElementById("mTitle").innerText = p.title;
+  document.getElementById("mImg").src = p.img;
+  document.getElementById("mDesc").innerHTML = `
+    ${p.desc}
+    <br><br>
+    <strong>Technologies Used:</strong><br>
+    ${p.tech.map(t => `
+      <span style="display:inline-block;margin:6px 6px 0 0;padding:6px 12px;
+      border:1px solid #38bdf8;border-radius:14px;color:#38bdf8;font-size:13px;">
+      ${t}</span>`).join("")}
+  `;
+  document.getElementById("modal").style.display = "flex";
+  document.body.style.overflow = "hidden"; // 🔒 lock background scroll
 }
 
-/* typing */
-const roles=["Data Analyst","Joint Secretary","UI/UX Designer","ML Enthusiast","AI & DS Student"];
-let i=0,j=0;
-const el=document.querySelector(".typing");
-function type(){
- if(j<roles[i].length){
-  el.textContent+=roles[i][j++];
-  setTimeout(type,120);
- }else setTimeout(erase,1500);
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+  document.body.style.overflow = "auto";   // 🔓 restore scroll
 }
-function erase(){
- if(j>0){
-  el.textContent=roles[i].substring(0,--j);
-  setTimeout(erase,80);
- }else{
-  i=(i+1)%roles.length;
-  setTimeout(type,500);
- }
+
+
+/* typing animation */
+const roles = ["Data Analyst", "Joint Secretary", "UI/UX Designer", "ML Enthusiast", "AI & DS Student"];
+let i = 0, j = 0;
+const el = document.querySelector(".typing");
+
+function type() {
+  if (j < roles[i].length) {
+    el.textContent += roles[i][j++];
+    setTimeout(type, 120);
+  } else setTimeout(erase, 1500);
 }
-document.addEventListener("DOMContentLoaded",type);
+
+function erase() {
+  if (j > 0) {
+    el.textContent = roles[i].substring(0, --j);
+    setTimeout(erase, 80);
+  } else {
+    i = (i + 1) % roles.length;
+    setTimeout(type, 500);
+  }
+}
+document.addEventListener("DOMContentLoaded", type);
 </script>
 
 </body>
