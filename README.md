@@ -68,9 +68,9 @@ You can download my latest resume directly from the portfolio.
 
 **Name:** Janani R S
 
- Email: your-email@example.com
+ Email: mail2rsjanani@gmail.com
 
- LinkedIn: https://www.linkedin.com/in/your-linkedin/
+ LinkedIn: https://www.linkedin.com/in/janani-rs-/
 
  GitHub: https://github.com/JananiRS-git
 
